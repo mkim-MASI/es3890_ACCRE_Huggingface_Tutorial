@@ -1,6 +1,8 @@
 # es3890_ACCRE_Huggingface_Tutorial
 Tutorial for using the ACCRE GPU resources to run Huggingface models 
 
+Instructor: Michael Kim
+
 ---
 
 ## To Start
@@ -124,7 +126,8 @@ Anytime you wish to deativate the environment, simply run `deactivate`.
 
 ## Part 1: Large Language Model (LLM) for Text Generation
 
-The model and code in this tutorial come from the following huggingface repo: https://huggingface.co/Qwen/Qwen3-0.6B
+The model and code in this tutorial come from the following huggingface repo: https://huggingface.co/Qwen/Qwen3-0.6B.
+This model is for a text generation model that responds to a given prompt.
 
 To begin, make sure your environment is activated.
 We must then install the necessary dependencies in order to run the code for the LLM by running:
@@ -182,11 +185,12 @@ You should see output lines that are in response to the prompt "Please tell me a
 
 Note that you can play around with this, changing the line `prompt = ...` to see what different outputs you can get.
 
+---
 
 ## Part 2: Stable Diffusion Model for Image Generation
 
-The model and code in this tutorial comes from here: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0
-
+The model and code in this tutorial comes from here: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0.
+This model is for an image generation model, where the image is generated based on the given prompt.
 This is, in my opinion, the most fun and my personal favorite of the three parts (and I know Dr. Landman's favorite as well!)
 
 To begin, make sure your environment is activated.
@@ -225,7 +229,19 @@ Click on the newly created `testimg.png` to see the image that should match the 
 
 Play around with this by changing the prompt to see what kinds of images you can create!
 
+---
+
 ## Part 3: Vision Language Model
+
+The model and code in this tutorial comes from here: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0.
+This model is for a vision language model, where, given an image and a prompt, generates a text response and a bounding box(es) for the image. 
+(The model can also accept a bounding box as well.)
+
+To begin, make sure your environment is activated.
+We have installed all the necessary dependencies from the previous parts of this tutorial.
+
+Create a new folder/directory by running `mkdir part3_outputs`, where `part3_outputs` is the name of the directory.
+Then, create a Python file called `test_huggingface3.py` with the following code:
 
 ```
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -248,12 +264,31 @@ print(response)
 
 image = tokenizer.draw_bbox_on_latest_picture(response)
 if image:
-  image.save('part3_outdir/testimg.jpg')
+  image.save('~/part3_outputs/testimg.jpg')
 else:
   print("no box")
 ```
 
+You should see a text response that corresponds to the original image here: https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg.
+The response will also be linked to the newly generated image from the model.
+If you are using an interactive session from the terminal directly, then you can look at the resulting image on the ACCRE dashboard.
+Navigate to the "Files" dropdown menu and click on the `part3_outputs` folder.
+Click on the newly created `testimg.jpg` to see the image that was generated.
+It should be the original image with an added bounding box(es) that corresponds to the prompt.
 
-Think about how these could potentially be used in some of your projects!
+Play around with this by changing the prompt and the input image to see what changes in the outputs.
+
+---
+
+## Part 4: Additional Models
+
+There are many more models available than these ones demonstrated here. You can search for available ones on the Huggingface website: https://huggingface.co/models.
+Some will likely be easier than others to follow/get running. Here are some examples that may be useful in some of your projects:
+
+For ranking similarities between sets of texts and images: https://huggingface.co/Qwen/Qwen3-VL-Embedding-2B
+
+For character recognition in images: https://huggingface.co/PaddlePaddle/PaddleOCR-VL
+
+Think about how some of these models, including the ones in this tutorial, could potentially be used in some of your projects!
 
 

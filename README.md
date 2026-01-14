@@ -3,6 +3,16 @@ Tutorial for using the ACCRE GPU resources to run Huggingface models
 
 Instructor: Michael Kim
 
+- To Start
+- Setting up
+    - Job Submission
+    - Interactive Session
+    - Creating and Activating Environment
+- Part 1: Large Language Model (LLM) for Text Generation
+- Part 2: Stable Diffusion Model for Image Generation
+- Part 3: Vision Language Model
+- Part 4: Additional Models
+
 ---
 
 ## To Start

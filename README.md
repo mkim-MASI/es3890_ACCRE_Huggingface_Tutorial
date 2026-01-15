@@ -61,8 +61,6 @@ Some people may feel more or less comfortable using ACCRE resources. For those m
 feel free to run all Python code below by submitting ACCRE jobs. However, if you have less familiarity (or prefer interactive environments instead like me),
 all the code below can be run interactively as well.
 
-If you plan to run the interactive session, I would suggest setting that up now before you do anything else.
-
 ---
 
 #### Job Submission
@@ -103,9 +101,7 @@ You can then submit the job by running: `sbatch job.slurm`
 
 #### Interactive Session
 
-While the `es3890_acc` group has access to the NVIDIA RTX A6000 GPUs, the interactive group account `es3890_iacc` does not.
-The smaller GPUs that are available to the `es3890_iacc` cannot fit some of the larger models we will be using in this tutorial.
-To get around this, we can also start an interactive session through the ACCRE dashboard/visualization portal:
+There are two ways to start an interactive session for an ACCRE GPU node. One is to use the ACCRE visualization portal following the instructions below:
 
 1. On the ACCRE dashboard/visualization portal website, click on the "Interactive Apps" dropdown menu and click "ACCRE Desktop"
 2. Fill out the number of hours you would like to have allocated to you (1 hour should be enough for the tutorial)
@@ -115,8 +111,12 @@ To get around this, we can also start an interactive session through the ACCRE d
 6. For "Number of GPUs", enter "1"
 7. Click "Launch" at the bottom of the page
 
-This should take a few minutes before the resources are allocated to you. In the meantime, you can get started with the tutorial
-using the smaller a4000 GPUs by running the command `salloc -A es3890_iacc -p interactive_gpu --gres=gpu:nvidia_rtx_a4000:1 --mem=16G`.
+This should take a few minutes before the resources are allocated to you. 
+
+If you prefer the simpler way, you can run the following from the terminal to also start an interactive session directly from the command line:
+```
+salloc --account=es3890_acc --partition=batch_gpu --gres=gpu:nvidia_rtx_a6000:1 --time=02:00:00
+```
 
 ---
 

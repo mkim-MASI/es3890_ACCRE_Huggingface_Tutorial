@@ -26,7 +26,7 @@ As a refresher, please follow the instructions in this section to make sure that
 2. Click on the "Files" dropdown menu and click "Home Directory"
 3. Click on the button near the top that says "Open in Terminal". It should open a new window with a terminal being run on an ACCRE login node.
 4. Run the command `slurm_groups`. You should see that you are a member of both `es3890_acc` and `es3890_iacc`
-5. Run the command `salloc -A es3890_iacc -p interactive_gpu --gres=gpu:nvidia_rtx_a4000:1 --mem=16G`. It should allocate a GPU node to you in a few seconds.
+5. Run the command `salloc --account=es3890_acc --partition=batch_gpu --gres=gpu:nvidia_rtx_a6000:1 --time=00:05:00`. It should allocate a GPU node to you in a few seconds.
 6. Run the command `nvidia-smi`. You should see an output that looks similar to:
 
 ```

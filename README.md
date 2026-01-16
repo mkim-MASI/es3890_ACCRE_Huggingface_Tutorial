@@ -143,7 +143,7 @@ To begin, make sure your environment is activated.
 We must then install the necessary dependencies in order to run the code for the LLM by running:
 
 ```
-pip install torch transformers
+pip install torch transformers accelerate
 ```
 
 Once these libraries finish installing, create a Python file called `test_huggingface1.py` with the following code:

@@ -216,6 +216,7 @@ Then, create a Python file called `test_huggingface2.py` with the following code
 ```
 import torch
 import os
+from diffusers import DiffusionPipeline
 output_dir="~/part2_outputs/"
 #load the base model
 pipe = DiffusionPipeline.from_pretrained(

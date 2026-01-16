@@ -115,7 +115,7 @@ This should take a few minutes before the resources are allocated to you.
 
 If you prefer the simpler way, you can run the following from the terminal to also start an interactive session directly from the command line:
 ```
-salloc --account=es3890_acc --partition=batch_gpu --gres=gpu:nvidia_rtx_a6000:1 --time=02:00:00
+salloc --account=es3890_acc --partition=batch_gpu --gres=gpu:nvidia_rtx_a6000:1 --time=02:00:00 --mem=48G
 ```
 
 ---
